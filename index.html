@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%C3%ADndice">Índice</h1>
+<ul>
+<li><a href="#%C3%ADndice">Índice</a></li>
+<li><a href="#1-instalaci%C3%B3n-de-xampp">1. Instalación de Xampp</a>
+<ul>
+<li><a href="#11-ejecuci%C3%B3n-de-xampp">1.1. Ejecución de Xampp</a></li>
+<li><a href="#12-comprobar-que-el-servidor-y-la-base-de-datos-funciona-correctamente">1.2. Comprobar que el servidor y la base de datos funciona correctamente</a></li>
+</ul>
+</li>
+<li><a href="#2-preparaci%C3%B3n-del-entorno">2. Preparación del entorno</a>
+<ul>
+<li><a href="#21-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.1. Creación de un usuario en la base de datos</a></li>
+<li><a href="#21-localizar-la-carpeta-htdocs-de-apache">2.1. Localizar la carpeta htdocs de Apache</a></li>
+<li><a href="#22-crear-la-carpeta-del-proyecto-en-htdocs">2.2. Crear la carpeta del proyecto en htdocs</a></li>
+<li><a href="#23-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.3. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-instalaci%C3%B3n-de-xampp">1. Instalación de Xampp</h1>
+<div style="text-align:justify">
+<p>Xampp es una distribución de Apache de sofware libre que contiene MariaDB, PHP y Perl.</p>
+<p>Apache es un servidor que nos permitirá alojar nuestra página web. MariaDB es un sistema gestor de base de datos y PHP es un lenguaje del lado del servidor que conectará nuestra base de datos con la página web.</p>
+<p>El proceso de instalación de Xampp en EducaAndOS es sencillo: solo tenemos que buscar el programa en el centro de software (accesible desde el menú Aplicaciones &gt; Herramientas del sistema &gt; Centro de software).</p>
+<p>Una vez localizado el programa, solo tendremos que seleccionar el botón de instalar</p>
+</div>
+<p><img src="Figuras/InstalaXampp.png" alt="Menú para localizar Xampp"></p>
+<div style="text-align:justify">
+<p>Si queremos instalar el programa en Windows, se deben seguir las instrucciones de la <a href="https://www.apachefriends.org/es/download.html">página oficial</a>. Simplemente se debe descargar y ejecutar el instalador.</p>
+</div>
+<h2 id="11-ejecuci%C3%B3n-de-xampp">1.1. Ejecución de Xampp</h2>
+<p>Si ejecutamos Xampp se mostrará el panel de control:</p>
+<p><img src="Figuras/PanelControl.png" alt="Panel de control de Xampp"></p>
+<div style="text-align:justify">
+<p>Para ver el estado de los servidores seleccionamos la segunda pestaña (<em>Manage servers</em>):</p>
+</div>
+<p><img src="Figuras/EstadoServXampp.png" alt="Estado de los servidores"></p>
+<div style="text-align:justify">
+<p>Para nuestra práctica no usaremos ProFTPD. Por eso solo tenemos que iniciar MySQL Database y Apache Web Server. Para ello, seleccionamos el servidor correspondiente y pulsamos el botón <em>start</em>.</p>
+<p>Si todo ha funcionado correctamente, el círculo cambiará al color verde y se mostrará el estado <em>Running</em>.</p>
+</div>
+<p><img src="Figuras/ServXamppInic.png" alt="Servidor de MySQL y de Apache iniciados"></p>
+<h2 id="12-comprobar-que-el-servidor-y-la-base-de-datos-funciona-correctamente">1.2. Comprobar que el servidor y la base de datos funciona correctamente</h2>
+<div style="text-align:justify">
+<p>Para acceder a la página de inicio del servidor escribimos la url [http://localhost] en cualquier navegador. Debería mostrarse una página similar a la siguiente:</p>
+</div>
+<p><img src="Figuras/ApacheServer.png" alt="Página de inicio de Apache"></p>
+<div style="text-align:justify">
+<p>Si queremos acceder a la base de datos, usaremos la herramienta phpMyAdmin que viene incluida en Xampp:</p>
+</div>
+<p><img src="Figuras/Iniciophpmyadmin.png" alt="Página de inicio de phpMyAdmin"></p>
+<h1 id="2-preparaci%C3%B3n-del-entorno">2. Preparación del entorno</h1>
+<p>Antes de comenzar a programar la conexión de la página web con la base de datos es necesario preparar el entorno de trabajo. Estos pasos se realizarán solo una vez al principio: después se continuará modificando los archivos con Visual Studio Code como en prácticas anteriores.</p>
+<h2 id="21-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.1. Creación de un usuario en la base de datos</h2>
+<div style="text-align:justify">
+<p>Vamos a crear un usuario en la base de datos que será el que se utilice posteriormente para acceder desde PHP a los datos de las tablas. Para ello, en la ventana de phpMyAdmin seleccionamos la opción <strong>cuentas de usuario</strong>.</p>
+</div>
+<p><img src="Figuras/CuentasUsuariophpmyadmin.png" alt="Cuentas de usuario en phpMyAdmin"></p>
+<div style="text-align:justify">
+<p>Seleccionamos la opción <strong>Agregar cuenta de usuario</strong> (sección nuevo):</p>
+</div>
+<p><img src="Figuras/NuevoUsuariophp.png" alt="Nuevo usuario en phpMyAdmin"></p>
+<div style="text-align:justify">
+<p>Rellenamos los campos correspondientes al nombre del usuario y la contraseña. Elegimos una contraseña que sea fuerte (el propio nombre nos indica la robustez de la misma). En el campo <em>nombre de host</em> elegimos <strong>Local (localhost)</strong>.</p>
+</div>
+<p><img src="Figuras/CrearUsuarioNombrephp.png" alt="Nombre y contraseña del nuevo usuario en phpMyAdmin"></p>
+<div style="text-align:justify">
+<p>A continuación, le daremos privilegios al usuario para que pueda crear, modificar y borrar tablas, así como seleccionar, insertar y modificar archivos. Para ello, seleccionamos las opciones que se muestran en la siguiente imagen:</p>
+</div>
+<p><img src="Figuras/PrivilegiosUsuarioBBDD.png" alt="Privilegios del nuevo usuario de la base de datos"></p>
+<div style="text-align:justify">
+<p>Seleccionamos el botón continuar y el usuario debería haberse creado correctamente:</p>
+</div>
+<p><img src="Figuras/SQL-CreateUser.png" alt="Código SQL de la creación del nuevo usuario de la base de datos"></p>
+<h2 id="21-localizar-la-carpeta-htdocs-de-apache">2.1. Localizar la carpeta htdocs de Apache</h2>
+<div style="text-align:justify">
+<p>Cuando trabajamos con el servidor Apache todos los archivos públicos se deben ubicar en la carpeta htdocs del servidor. Es decir, si queremos que un archivo html sea accesible desde el servidor tendrá que estar almacenado en dicho directorio.</p>
+<p>En EducaAndOs esta carpeta está en la ruta /var/chroot/opt/lampp/htdocs. También podemos acceder al directorio pulsando el botón <em>Open application folder</em> de la ventana del panel de control</p>
+</div>
+<p><img src="Figuras/PanelControl.png" alt="Panel de control de Xampp"></p>
+<div style="text-align:justify">
+<p>Si entramos en la carpeta Apache encontraremos una distribución similar a la siguiente:</p>
+</div>
+<p><img src="Figuras/CarpetaApache.png" alt="Estructura de la carpeta Apache"></p>
+<div style="text-align:justify">
+<p>En el caso de Windows, generalmente la carpeta htdocs estará en la ruta C:\xampp si no se ha modificado el directorio durante el proceso de instalación.</p>
+</div>
+<div style="text-align:justify">
+<p>Si entramos en la carpeta htdocs veremos un contenido similar al de la siguiente imagen:</p>
+</div>
+<p><img src="Figuras/CarpetaHtdocs.png" alt="Estructura de la carpeta htdocs"></p>
+<div style="text-align:justify">
+<p>Como podemos observar, tenemos una carpeta img para las imágenes y un archivo index.php. Si en el navegador escribimos http://localhost/index.php veremos el contenido de ese fichero:</p>
+</div>
+<p><img src="Figuras/ApacheServer.png" alt="Página de inicio de Apache"></p>
+<h2 id="22-crear-la-carpeta-del-proyecto-en-htdocs">2.2. Crear la carpeta del proyecto en htdocs</h2>
+<div style="text-align:justify">
+<p>Vamos a continuar usando la carpeta del proyecto que tenemos creada de las fases anteriores. Para que los archivos sean accesibles desde el servidor tenemos que copiar el directorio en la carpeta htdocs.</p>
+<p>En el manual vamos a suponer que la carpeta se llama ProyectoWebPyC. Comprobaremos que los archivos se han copiado correctamente escribiendo en el navegador la ruta http://localhost/ProyectoWebPyC/index.html.</p>
+<p>En la ruta anterior es importante tener en cuenta tres elementos:</p>
+<ul>
+<li>La parte http://localhost es la que indica que se carguen los datos del servidor.</li>
+<li>ProyectoWebPyC hace referencia a la carpeta donde están los archivos del proyecto.</li>
+<li>El fichero index.html es el fichero que se va a cargar inicialmente en nuestra página. Este archivo debe existir.</li>
+</ul>
+<p>En un servidor si se incluye solo la ruta http://localhost/carpeta se buscarán los archivos index.php o index.html para cargarlos. Siguiendo con nuestro ejemplo, la ruta http://localhost/ProyectoWebPyC/index.html y http://localhost/ProyectoWebPyC deberían mostrar el mismo resultado.</p>
+</div>
+<h2 id="23-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.3. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</h2>
+<div style="text-align:justify">
+<p>Una vez que hemos copiado la carpeta con todos los archivos en htdocs, el siguiente paso es abrirla con Visual Studio Code. Para ello, usamos la opción <em>Open folder</em>:</p>
+</div>
+<p><img src="Figuras/OpenFolder.png" alt="Ventana para abrir carpeta en Visual Studio Code"></p>
+<p>Y buscamos la ruta correspondiente:</p>
+<p><img src="Figuras/RutaHtdocsVSCode.png" alt="Buscar la ruta de la carpeta del proyecto en htdocs en Visual Studio Code"></p>
+<!-- 
+
+# 3. Trabajar con bases de datos en PHP
+
+En esta sección estudiaremos mediante ejemplos cómo trabajar con bases de datos en PHP. 
+
+## 3.1. Conexión
+
+El primer paso que debemos 
+ -->
+
+</body>
+</html>
