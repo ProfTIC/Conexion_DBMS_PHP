@@ -5,6 +5,11 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
@@ -371,10 +376,18 @@ code {
 </li>
 <li><a href="#2-preparaci%C3%B3n-del-entorno">2. Preparación del entorno</a>
 <ul>
-<li><a href="#21-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.1. Creación de un usuario en la base de datos</a></li>
-<li><a href="#21-localizar-la-carpeta-htdocs-de-apache">2.1. Localizar la carpeta htdocs de Apache</a></li>
-<li><a href="#22-crear-la-carpeta-del-proyecto-en-htdocs">2.2. Crear la carpeta del proyecto en htdocs</a></li>
-<li><a href="#23-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.3. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</a></li>
+<li><a href="#21-creaci%C3%B3n-de-una-base-de-datos-y-una-tabla-de-ejemplo">2.1. Creación de una base de datos y una tabla de ejemplo</a></li>
+<li><a href="#22-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.2. Creación de un usuario en la base de datos</a></li>
+<li><a href="#23-localizar-la-carpeta-htdocs-de-apache">2.3. Localizar la carpeta htdocs de Apache</a></li>
+<li><a href="#24-crear-la-carpeta-del-proyecto-en-htdocs">2.4. Crear la carpeta del proyecto en htdocs</a></li>
+<li><a href="#25-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.5. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</a></li>
+</ul>
+</li>
+<li><a href="#3-trabajar-con-bases-de-datos-en-php">3. Trabajar con bases de datos en PHP</a>
+<ul>
+<li><a href="#31-conexi%C3%B3n">3.1. Conexión</a></li>
+<li><a href="#32-ejecutar-una-sentencia-en-la-base-de-datos-desde-php">3.2. Ejecutar una sentencia en la base de datos desde PHP</a></li>
+<li><a href="#33-acceso-desde-php-a-los-datos-de-un-formulario">3.3. Acceso desde php a los datos de un formulario</a></li>
 </ul>
 </li>
 </ul>
@@ -403,7 +416,7 @@ code {
 <p><img src="Figuras/ServXamppInic.png" alt="Servidor de MySQL y de Apache iniciados"></p>
 <h2 id="12-comprobar-que-el-servidor-y-la-base-de-datos-funciona-correctamente">1.2. Comprobar que el servidor y la base de datos funciona correctamente</h2>
 <div style="text-align:justify">
-<p>Para acceder a la página de inicio del servidor escribimos la url [http://localhost] en cualquier navegador. Debería mostrarse una página similar a la siguiente:</p>
+<p>Para acceder a la página de inicio del servidor escribimos la url <a href="http://localhost">http://localhost</a> en cualquier navegador. Debería mostrarse una página similar a la siguiente:</p>
 </div>
 <p><img src="Figuras/ApacheServer.png" alt="Página de inicio de Apache"></p>
 <div style="text-align:justify">
@@ -411,8 +424,33 @@ code {
 </div>
 <p><img src="Figuras/Iniciophpmyadmin.png" alt="Página de inicio de phpMyAdmin"></p>
 <h1 id="2-preparaci%C3%B3n-del-entorno">2. Preparación del entorno</h1>
+<div style="text-align:justify">
 <p>Antes de comenzar a programar la conexión de la página web con la base de datos es necesario preparar el entorno de trabajo. Estos pasos se realizarán solo una vez al principio: después se continuará modificando los archivos con Visual Studio Code como en prácticas anteriores.</p>
-<h2 id="21-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.1. Creación de un usuario en la base de datos</h2>
+</div>
+<h2 id="21-creaci%C3%B3n-de-una-base-de-datos-y-una-tabla-de-ejemplo">2.1. Creación de una base de datos y una tabla de ejemplo</h2>
+<div style="text-align:justify">
+<p>En esta sección aprenderemos a crear una base de datos de ejemplo con phpMyAdmin que usaremos a lo largo de todo el tutorial.</p>
+<ul>
+<li>Para crear una base de datos podemos seleccionar la pestaña bases de datos o bien pulsar sobre la opción <strong>Nueva</strong> en el menú izquierdo de phpMyAdmin. Se mostrará una pantalla similar a la siguiente:</li>
+</ul>
+<p><img src="Figuras/nuevaBBDDphpMyAdmin.png" alt="Ventana para crear una nueva base de datos"></p>
+<p>Escribiremos el nombre de la base de datos (Ejemplo) y pulsaremos el botón <strong>Crear</strong></p>
+<ul>
+<li>Una vez que tenemos la base de datos, el siguiente paso es crear una tabla. En nuestra caso, crearemos una tabla localidad con dos columnas:</li>
+</ul>
+<p><img src="Figuras/CrearTablaLocalidad.png" alt="Ventana para crear una tabla localidad"></p>
+<p>Definimos los campos como se puede observar en la siguiente imagen:</p>
+<p><img src="Figuras/EstructuraTablaLocalidad.png" alt="Estructura de la tabla localidad"></p>
+<p>Cuando hayamos completado todos los datos pulsamos el botón <strong>Guardar</strong> y se mostrará la estructura de la tabla creada:</p>
+<p><img src="Figuras/EstructuraTablaLocalidad2.png" alt="Estructura de la tabla localidad creada"></p>
+<p>Finalmente, insertamos algunos datos de ejemplo en la tabla (con dos filas es suficiente). Para ello, se selecciona la opción insertar:</p>
+<p><img src="Figuras/InsertarDatosLocalidad.png" alt="Insertar datos en la tabla localidad"></p>
+<p>Pulsamos el botón <strong>Continuar</strong> y los datos se almacenarán en la tabla:</p>
+<p><img src="Figuras/ResultadoInsert.png" alt="Datos de la tabla localidad"></p>
+<p>Si seleccionamos la opción <strong>Examinar</strong> comprobaremos que los datos se han guardado correctamente:</p>
+<p><img src="Figuras/ResultadoSelect.png" alt="Datos de la tabla localidad"></p>
+</div>
+<h2 id="22-creaci%C3%B3n-de-un-usuario-en-la-base-de-datos">2.2. Creación de un usuario en la base de datos</h2>
 <div style="text-align:justify">
 <p>Vamos a crear un usuario en la base de datos que será el que se utilice posteriormente para acceder desde PHP a los datos de las tablas. Para ello, en la ventana de phpMyAdmin seleccionamos la opción <strong>cuentas de usuario</strong>.</p>
 </div>
@@ -433,7 +471,15 @@ code {
 <p>Seleccionamos el botón continuar y el usuario debería haberse creado correctamente:</p>
 </div>
 <p><img src="Figuras/SQL-CreateUser.png" alt="Código SQL de la creación del nuevo usuario de la base de datos"></p>
-<h2 id="21-localizar-la-carpeta-htdocs-de-apache">2.1. Localizar la carpeta htdocs de Apache</h2>
+<p>Una vez creado el usuario, hay que darle permisos para que pueda acceder a la base de datos de ejemplo que hemos creado anteriormente. Para ello, seleccionamos la opción <strong>Cuentas de usuario</strong> y pulsamos sobre <strong>Editar privilegios</strong> sobre el usuario que acabamos de crear:</p>
+<p><img src="Figuras/EditarPrivilegios.png" alt="Editar privilegios del usuario en la base de datos"></p>
+<p>A continuación, seleccionamos la opción Bases de datos y elegimos <em>Ejemplo</em> (la base de datos que hemos creado anteriormente):</p>
+<p><img src="Figuras/EditarPrivilegiosBBDD.png" alt="Editar privilegios del usuario en la base de datos"></p>
+<p>Pulsamos <strong>continuar</strong> y marcamos los que se observan en la siguiente imagen:
+<img src="Figuras/PrivilegiosBBDD.png" alt="Editar privilegios del usuario en la base de datos"></p>
+<p>Para confirmar, pulsamos nuevamente en el botón <strong>continuar</strong>. Si no se ha producido ningún problema, se mostrará el siguiente mensaje:</p>
+<p><img src="Figuras/ActualizaCorrecta.png" alt="Cambios de privilegios correctos"></p>
+<h2 id="23-localizar-la-carpeta-htdocs-de-apache">2.3. Localizar la carpeta htdocs de Apache</h2>
 <div style="text-align:justify">
 <p>Cuando trabajamos con el servidor Apache todos los archivos públicos se deben ubicar en la carpeta htdocs del servidor. Es decir, si queremos que un archivo html sea accesible desde el servidor tendrá que estar almacenado en dicho directorio.</p>
 <p>En EducaAndOs esta carpeta está en la ruta /var/chroot/opt/lampp/htdocs. También podemos acceder al directorio pulsando el botón <em>Open application folder</em> de la ventana del panel de control</p>
@@ -454,7 +500,7 @@ code {
 <p>Como podemos observar, tenemos una carpeta img para las imágenes y un archivo index.php. Si en el navegador escribimos http://localhost/index.php veremos el contenido de ese fichero:</p>
 </div>
 <p><img src="Figuras/ApacheServer.png" alt="Página de inicio de Apache"></p>
-<h2 id="22-crear-la-carpeta-del-proyecto-en-htdocs">2.2. Crear la carpeta del proyecto en htdocs</h2>
+<h2 id="24-crear-la-carpeta-del-proyecto-en-htdocs">2.4. Crear la carpeta del proyecto en htdocs</h2>
 <div style="text-align:justify">
 <p>Vamos a continuar usando la carpeta del proyecto que tenemos creada de las fases anteriores. Para que los archivos sean accesibles desde el servidor tenemos que copiar el directorio en la carpeta htdocs.</p>
 <p>En el manual vamos a suponer que la carpeta se llama ProyectoWebPyC. Comprobaremos que los archivos se han copiado correctamente escribiendo en el navegador la ruta http://localhost/ProyectoWebPyC/index.html.</p>
@@ -466,23 +512,190 @@ code {
 </ul>
 <p>En un servidor si se incluye solo la ruta http://localhost/carpeta se buscarán los archivos index.php o index.html para cargarlos. Siguiendo con nuestro ejemplo, la ruta http://localhost/ProyectoWebPyC/index.html y http://localhost/ProyectoWebPyC deberían mostrar el mismo resultado.</p>
 </div>
-<h2 id="23-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.3. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</h2>
+<h2 id="25-preparar-visual-studio-code-para-trabajar-con-la-carpeta-del-proyecto-en-htdocs">2.5. Preparar Visual Studio Code para trabajar con la carpeta del proyecto en htdocs</h2>
 <div style="text-align:justify">
 <p>Una vez que hemos copiado la carpeta con todos los archivos en htdocs, el siguiente paso es abrirla con Visual Studio Code. Para ello, usamos la opción <em>Open folder</em>:</p>
 </div>
 <p><img src="Figuras/OpenFolder.png" alt="Ventana para abrir carpeta en Visual Studio Code"></p>
 <p>Y buscamos la ruta correspondiente:</p>
 <p><img src="Figuras/RutaHtdocsVSCode.png" alt="Buscar la ruta de la carpeta del proyecto en htdocs en Visual Studio Code"></p>
-<!-- 
+<h1 id="3-trabajar-con-bases-de-datos-en-php">3. Trabajar con bases de datos en PHP</h1>
+<div style="text-align:justify">
+<p>En esta sección estudiaremos mediante ejemplos cómo trabajar con bases de datos en PHP. Antes de comenzar, veremos algunas características básicas del lenguaje PHP:</p>
+<ul>
+<li>El código php se guarda en un archivo de la misma extensión (por ejemplo, index.php)</li>
+<li>Las instrucciones de php se deben incluir entre <code>&lt;?php</code> y <code>?&gt;</code>. Todos los comandos acaban en ;</li>
+<li>Para mostrar un texto se utiliza <code>echo</code></li>
+<li>Podemos combinar etiquetas html e instrucciones php</li>
+<li>Las variables se declaran incluyendo el símbolo $ delante del nombre (por ejemplo, $variable). La forma más sencilla es crear la variable y asignarle un valor directamente con el operador de asignación (=):
+<ul>
+<li><code>$variableCadena=&quot;valor&quot;;</code></li>
+<li><code>$variableEntera=10;</code></li>
+<li><code>$variableDecimal=10.0;</code></li>
+<li><code>$variableBooleana=false;</code></li>
+</ul>
+</li>
+<li>La sintaxis de las estructuras de control se pueden estudiar en el siguiente <a href="https://www.php.net/manual/es/language.control-structures.php">enlace</a></li>
+</ul>
+<h2 id="31-conexi%C3%B3n">3.1. Conexión</h2>
+<p>El primer paso que debemos hacer es crear una conexión a la base de datos desde un archivo php. Para ello, usaremos el siguiente código:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+    <span class="hljs-meta">&lt;?php</span>
+   
+   $nombreServidor = <span class="hljs-string">"localhost"</span>;
+   $baseDatos = <span class="hljs-string">"Ejemplo"</span>;
+   $nombreUsuario = <span class="hljs-string">"usuarioEjemplo"</span>;
+   $password = <span class="hljs-string">"usuarioEjemplo"</span>;
+   
+   <span class="hljs-comment">// Se crea la conexión</span>
+   
+   $conn = <span class="hljs-keyword">new</span> mysqli($nombreServidor, $nombreUsuario, $password, $baseDatos);
+   
+   <span class="hljs-comment">// Se comprueba que la conexión es correcta</span>
+   
+    <span class="hljs-keyword">if</span> (!$conn) {
+       <span class="hljs-keyword">die</span>(<span class="hljs-string">"Connection failed: "</span> . mysqli_connect_error());
+    }
+    
+    mysqli_close($conn);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Vamos a explicar qué significa cada instrucción:</p>
+<ul>
+<li>Inicialmente definimos un conjunto de variables que almacenarán los datos de la conexión: nombre del servidor (localhost), base de datos a la que nos vamos a conectar, nombre de usuario y contraseña</li>
+<li>La conexión se implementa creando un nuevo objeto <code>msyqli</code> que utiliza como parámetros el nombre del servidor de datos, el usuario, su contraseña y la base de datos a la que se va a conectar.</li>
+<li>El resultado de la función se almacena en la variable $conn. Comprobamos posteriormente si la conexión es correcta. Si no lo es (se devuelve <code>false</code>) se muestra el error usando la función <code>mysqli_connect_error()</code> y finaliza la ejecución del código php con la función <code>die</code></li>
+<li>Si todo ha funcionado correctamente se muestra el mensaje &quot;Conexión correcta&quot;</li>
+<li>Finalmente se cierra la conexión usando <code>mysqli_close</code></li>
+</ul>
+<h2 id="32-ejecutar-una-sentencia-en-la-base-de-datos-desde-php">3.2. Ejecutar una sentencia en la base de datos desde PHP</h2>
+<p>Existen varias funciones para ejecutar una sentencia en una base de datos desde PHP. En este tutorial usaremos <code>query</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+   
+  $nombreServidor = <span class="hljs-string">"localhost"</span>;
+  $baseDatos = <span class="hljs-string">"Ejemplo"</span>;
+  $nombreUsuario = <span class="hljs-string">"usuarioEjemplo"</span>;
+  $password = <span class="hljs-string">"usuarioEjemplo"</span>;
+  
+  <span class="hljs-comment">// Se crea la conexión</span>
+   
+  $conn = <span class="hljs-keyword">new</span> mysqli($nombreServidor, $nombreUsuario, $password, $baseDatos);
+   
+  <span class="hljs-comment">// Se comprueba que la conexión es correcta</span>
+   
+  <span class="hljs-keyword">if</span> (!$conn) {
+    
+    <span class="hljs-keyword">die</span>(<span class="hljs-string">"Connection failed: "</span> . mysqli_connect_error());
+  }
+  
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">"Conexión correcta"</span>;
 
-# 3. Trabajar con bases de datos en PHP
+  $sentenciaSQL=<span class="hljs-string">"INSERT INTO Localidad VALUES(3,'Córdoba')"</span>;
+ 
+  <span class="hljs-keyword">if</span> (!$conn-&gt;query($sentenciaSQL)) {
+      
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Falló la inserción de datos en la tabla: ("</span> . $conn-&gt;errno . <span class="hljs-string">") "</span> . $conn-&gt;error;
+  
+  }
+    
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">"Se ha ejecutado correctamente la inserción de datos"</span>;
+  
+  mysqli_close($conn);
 
-En esta sección estudiaremos mediante ejemplos cómo trabajar con bases de datos en PHP. 
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Describimos el código paso a paso:</p>
+<ul>
+<li>La primera parte se corresponde con la creación de la conexión, explicada en el apartado anterior.</li>
+<li>Cuando comprobamos que la conexión es correcta, creamos una variable (<code>$sentenciaSQL</code>) con el código SQL necesario para insertar una nueva fila de datos en la tabla (<code>INSERT INTO Localidad VALUES(3,'Córdoba')</code>)</li>
+<li>Para ejecutar esa instrucción usamos la estructura <code>$conn-&gt;query($sentenciaSQL)</code>. Este comando ejecuta la instrucción que se pasa como parámetro (INSERT en nuestro ejemplo) sobre la conexión de la base de datos (<code>$conn</code>).</li>
+<li>Al igual que con la conexión, siempre hay que comprobar si se ha producido algún error. En este caso usamos <code>if (!$conn-&gt;query($sentenciaSQL))</code>. Si se cumple la condición, significa que se ha producido algún error durante la inserción de datos.</li>
+<li>Si todo ha ido correctamente, se ejecutará la instrucción <code>echo</code> y se mostrará el texto &quot;Se ha ejecutado correctamente la inserción de datos&quot;.</li>
+<li>Finalmente, cerramos la conexión de la base de datos</li>
+</ul>
+<p>Para ejecutar el código anterior escribimos en el navegador la ruta hasta el archivo php. Por ejemplo, https://localhost/Ejemplo/conexion.php si guardamos el código anterior en la carpeta Ejemplo del servidor con el nombre conexion.php. El resultado debe ser el siguiente:</p>
+<p><img src="Figuras/INSERT-php.png" alt="Resultado de la ejecución correcta de la inserción de datos con PHP"></p>
+<p>Si entramos en phpMyAdmin podremos comprobar que la fila de datos se ha insertado correctamente en la tabla localidad:</p>
+<p><img src="Figuras/DatosLocalidadActualizados.png" alt="Datos localidad actualizados"></p>
+<h2 id="33-acceso-desde-php-a-los-datos-de-un-formulario">3.3. Acceso desde php a los datos de un formulario</h2>
+<p>Una de las características fundamentales de PHP es que permite gestionar formularios HTML. Es importante entender que cualquier elemento de un formulario será accesible desde un script de PHP.</p>
+<p>Por ejemplo, partimos del siguiente formulario:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 
-## 3.1. Conexión
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"registro.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">accept-charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nombre: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nombre"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nombre"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Precio: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"precio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"precio"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>El único elemento nuevo que hemos incluido es que acepte los datos de la codificación utf-8 para que las tildes se envíen correctamente (<code>accept-charset=&quot;utf-8&quot;</code>).</p>
+<p>El resultado en el navegador sería:</p>
+<p><img src="Figuras/EjemploFormulario.png" alt="Visualización del formulario en el navegador"></p>
+<p>Cuando el usuario rellene el formulario y pulsa sobre el botón de enviar, se ejecutará el código del archivo registro.php. Supongamos que tiene las siguientes instrucciones:</p>
+<pre class="hljs"><code><div>  Código de localidad: <span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $_POST[<span class="hljs-string">'codigo'</span>]; <span class="hljs-meta">?&gt;</span>.
+  &lt;p&gt;
+    Nombre: <span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $_POST[<span class="hljs-string">'nombre'</span>]; <span class="hljs-meta">?&gt;</span> 
+  &lt;/p&gt;
+</div></code></pre>
+<p>Si lo ejecutamos en nuestro servidor el resultado será similar a:</p>
+<p><img src="Figuras/ResultadoFormulario.png" alt="Resultado de la ejecución del código registro.php"></p>
+<p>Combinando lo que  hemos visto en este apartado y en el anterior, podemos crear el código php necesario para insertar los datos del formulario en la base de datos cuando se pulse el botón de enviar. En este caso, el fichero php sería:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+   
+    $nombreServidor = <span class="hljs-string">"localhost"</span>;
+    $baseDatos = <span class="hljs-string">"Ejemplo"</span>;
+    $nombreUsuario = <span class="hljs-string">"usuarioEjemplo"</span>;
+    $password = <span class="hljs-string">"usuarioEjemplo"</span>;
+   
+    <span class="hljs-comment">// Se crea la conexión</span>
+   
+    $conn = <span class="hljs-keyword">new</span> mysqli($nombreServidor, $nombreUsuario, $password, $baseDatos);
+   
+    <span class="hljs-comment">// Se comprueba que la conexión es correcta</span>
+    
+    <span class="hljs-keyword">if</span> (!$conn) {
+       <span class="hljs-keyword">die</span>(<span class="hljs-string">"Connection failed: "</span> . mysqli_connect_error());
+   
+    }
+   
+    $codLoc = $_POST[<span class="hljs-string">'codigo'</span>];
 
-El primer paso que debemos 
- -->
+    $nombreLoc = $_POST[<span class="hljs-string">'nombre'</span>];
+
+    $sentenciaSQL = <span class="hljs-string">"INSERT INTO Localidad VALUES("</span> . $codLoc. <span class="hljs-string">",'"</span> . $nombreLoc . <span class="hljs-string">"')"</span>;
+    
+    <span class="hljs-keyword">echo</span> $sentenciaSQL;
+     
+    <span class="hljs-keyword">if</span> (!$conn-&gt;query($sentenciaSQL)) {
+      
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">"Falló la inserción de datos en la tabla: ("</span> . $conn-&gt;errno . <span class="hljs-string">") "</span> . $conn-&gt;error;
+    }
+    
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Se ha ejecutado correctamente la inserción de datos"</span>;
+  
+  <span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Vamos a detallar el funcionamiento del código:</p>
+<ul>
+<li>La primera parte es la conexión con la base de datos</li>
+<li>En la segunda se crean dos variables (<code>$codLoc</code> y <code>$nombreLoc</code> para almacenar los datos del formulario)</li>
+<li>Posteriormente crearemos una variable <code>$sentenciaSQL</code> que almacenará el código de la sentencia <code>INSERT INTO</code>
+<ul>
+<li>Comenzamos escribiendo la parte literal de la instrucción: <code>INSERT INTO Localidad values(</code></li>
+<li>A continuación habría que insertar el valor del código de localidad. Para ello, usamos el operador de concatenación (<code>.</code>) indicando el nombre de la variable (sería <code>. $codLoc</code>)</li>
+<li>Completamos el resto del comando con la coma para separar los atributos, el valor de la variable <code>$nombreLoc</code> y el paréntesis final</li>
+<li>La instrucción <code>echo $sentenciaSQL</code> no es necearia, pero ayuda a ver los posibles errores, ya que nos permite ver qué comando estamos ejecutando en la base de datos. Durante el procedimiento de depuración es recomendable visualizar esta variable, aunque evidentemente luego se elimine en la versión final del sitio web. Mantener esta instrucción visible en una página web sería un problema de seguridad.</li>
+</ul>
+</li>
+</ul>
+<p>Si ejecutamos el código anterior y accedemos a phpMyAdmin podremos comprobar que en la base de datos se ha insertado la nueva localidad de forma correcta:</p>
+<p><img src="Figuras/ConsultaLocalidadFinal.png" alt="Comprobación de la actualización de la base de datos con los datos insertados del formulario"></p>
+</div>
 
 </body>
 </html>
